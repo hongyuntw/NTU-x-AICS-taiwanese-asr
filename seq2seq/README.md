@@ -18,3 +18,7 @@ evaluate translation任務 performance (CER/WER)
 
 ### translate_aishell.py
 負責將aishell中文 scirpt 利用 seq2seq model 轉成台羅數字調的 code
+
+
+### Training Data resource
+https://github.com/ga642381/Taiwanese-Translation
