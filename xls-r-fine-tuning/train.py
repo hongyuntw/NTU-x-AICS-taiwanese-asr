@@ -331,21 +331,21 @@ def main(arg=None):
         data_test = data_train
 
     data_collator = DataCollatorCTCWithPadding(processor=processor, padding=True)
-    # model = Wav2Vec2ForCTC.from_pretrained(
-    #     # input_arg['xlsr_config'],
-    #     '/work/u9296553/aics/xls-r-fine-tuning/facebook/wav2vec2-xls-r-300m-aishell_tailo_number/checkpoint-4233',
-    #     activation_dropout=input_arg.get('activation_dropout', 0.055),
-    #     attention_dropout=input_arg.get('attention_dropout', 0.094),
-    #     feat_proj_dropout=input_arg.get('feat_proj_dropout', 0.1),
-    #     feat_quantizer_dropout=input_arg.get('feat_quantizer_dropout', 0.04),
-    #     final_dropout=input_arg.get('final_dropout', 0.1),
-    #     hidden_dropout=input_arg.get('hidden_dropout', 0.047),
-    #     layerdrop=0.0,
-    #     ctc_loss_reduction="mean",
-    #     pad_token_id=processor.tokenizer.pad_token_id,
-    #     vocab_size=len(processor.tokenizer),
-    # )
-    model = Wav2Vec2ForCTC.from_pretrained('/work/u9296553/aics/xls-r-fine-tuning/facebook/wav2vec2-xls-r-300m-aishell_tailo_number/checkpoint-4233')
+    model = Wav2Vec2ForCTC.from_pretrained(
+        input_arg['xlsr_config'],
+        # '/work/u9296553/aics/xls-r-fine-tuning/facebook/wav2vec2-xls-r-300m-aishell_tailo_number/checkpoint-4233',
+        activation_dropout=input_arg.get('activation_dropout', 0.055),
+        attention_dropout=input_arg.get('attention_dropout', 0.094),
+        feat_proj_dropout=input_arg.get('feat_proj_dropout', 0.1),
+        feat_quantizer_dropout=input_arg.get('feat_quantizer_dropout', 0.04),
+        final_dropout=input_arg.get('final_dropout', 0.1),
+        hidden_dropout=input_arg.get('hidden_dropout', 0.047),
+        layerdrop=0.0,
+        ctc_loss_reduction="mean",
+        pad_token_id=processor.tokenizer.pad_token_id,
+        vocab_size=len(processor.tokenizer),
+    )
+    # model = Wav2Vec2ForCTC.from_pretrained('/work/u9296553/aics/xls-r-fine-tuning/facebook/wav2vec2-xls-r-300m-aishell_tailo_number/checkpoint-4233')
 
 
     model.freeze_feature_extractor()

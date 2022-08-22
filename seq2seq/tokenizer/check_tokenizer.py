@@ -35,4 +35,3 @@ for text in texts:
     print(ids)
     decode = tokenizer.decode(ids, skip_special_tokens=False, spaces_between_special_tokens=True)
     print(decode)
-    input()
